@@ -9,16 +9,14 @@ import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import Contact from './components/Contact/Contact';;
 
-
 axios.defaults.withCredentials = true;
-
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
 
   const userDetails = async () => {
     try{
-      const response = await axios.post("http://localhost:8000/userAuth");
+      const response = await axios.post("https://task-backend-q4kt.onrender.com/userAuth");
       console.log(response.data);
       if(!response.data.authorized){
         setLoggedIn(false);
@@ -41,10 +39,6 @@ const App = () => {
     setLoggedIn(false);
     setUsername('');
   };
-
-
-
-  
 
   return (
     <Router>
